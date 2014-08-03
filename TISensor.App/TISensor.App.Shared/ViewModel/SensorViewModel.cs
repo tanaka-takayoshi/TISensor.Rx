@@ -172,10 +172,6 @@ namespace TISensor.App.ViewModel
         {
             IrStatus = "Start monitoring...";
             var ir = new IRTemperatureSensor();
-
-            var d = await ir.GetDevicesAsync();
-            Debug.WriteLine(string.Join(",", d.Select(v => v.Name)));
-
             var device = d.First();
             await ir.EnableNotifications(device);
             ir.StartTemperatureMonitor()
