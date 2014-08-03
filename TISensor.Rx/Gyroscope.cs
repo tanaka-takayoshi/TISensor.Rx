@@ -19,7 +19,7 @@ namespace TISensor.Rx
             base(SensorServiceUuid, SensorConfigUuid, SensorDataUuid)
         {}
 
-        public override Task<bool> EnableSensor()
+        protected override Task<bool> EnableSensor()
         {
             return EnableSensor(new byte[] { 7 });
         }

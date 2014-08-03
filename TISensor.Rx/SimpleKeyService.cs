@@ -18,7 +18,7 @@ namespace TISensor.Rx
             base(SensorServiceUuid, null, SensorDataUuid)
         {}
 
-        public async override Task<bool> EnableSensor()
+        protected async override Task<bool> EnableSensor()
         {
             // not possible in this case
             return true;

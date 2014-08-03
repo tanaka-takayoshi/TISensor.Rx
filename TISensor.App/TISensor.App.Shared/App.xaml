@@ -2,6 +2,10 @@
     x:Class="TISensor.App.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TISensor.App">
+    xmlns:local="using:TISensor.App"
+    xmlns:viewModel="using:TISensor.App.ViewModel">
 
+    <Application.Resources>
+        <viewModel:ViewModelLocator x:Key="Locator" />
+    </Application.Resources>
 </Application>

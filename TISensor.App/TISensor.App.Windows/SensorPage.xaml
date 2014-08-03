@@ -1,0 +1,45 @@
+﻿<Page xmlns:DataVisualization="using:Telerik.UI.Xaml.Controls.DataVisualization" 
+    x:Class="TISensor.App.SensorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TISensor.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding Sensor, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Viewbox>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="温度" Command="{Binding StartIRMonitorCommand, Mode=OneWay}"/>
+                    <DataVisualization:RadLinearGauge MinWidth="300" MaxValue="50">
+                        <DataVisualization:LinearBarGaugeIndicator Value="{Binding AmbientTemperature}" Brush="Green"/>
+                        <DataVisualization:LinearBarGaugeIndicator Value="{Binding TargetTemperature}" Brush="Yellow"/>
+                    </DataVisualization:RadLinearGauge>
+
+                </StackPanel>
+            </Viewbox>
+            <Grid Grid.Row="1">
+                <Viewbox>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Touch" Command="{Binding StartTouchMonitorCommand, Mode=OneWay}"/>
+                        <ToggleSwitch FontSize="32" Header="Left" OffContent="OFF" OnContent="ON" IsOn="{Binding LeftButton}" />
+                        <ToggleSwitch FontSize="32" Header="Right" OffContent="OFF" OnContent="ON" IsOn="{Binding RightButton}" />
+                    </StackPanel>
+                </Viewbox>
+            </Grid>
+        </Grid>
+    </Grid>
+    
+</Page>

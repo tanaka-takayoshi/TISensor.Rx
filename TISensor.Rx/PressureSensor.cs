@@ -25,7 +25,7 @@ namespace TISensor.Rx
             base(SensorServiceUuid, SensorConfigUuid, SensorDataUuid)
         { }
 
-        public override async Task<bool> EnableSensor()
+        protected override async Task<bool> EnableSensor()
         {
             await StoreAndReadCalibrationValues();
             return await base.EnableSensor();
